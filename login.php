@@ -99,7 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 						<span class="help-block"><?php echo $password_err; ?></span>
 					</div>
 					<button type="submit" class="btn btn-primary"> Login </button>
-					<p class="signup">
+					<p class="logandcreate">
 					Not yet a member ?<a href="registration.php">Sign In</a>
 					</p>					
 				</form>

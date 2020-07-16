@@ -20,8 +20,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         if($stmt = mysqli_prepare($con, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_email);
-			
-			$param_email=trim($_POST["email"]);
+            
+            $param_email=trim($_POST["email"]);
           
             // execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -113,72 +113,72 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 <!DOCTYPE html>
 <html>
 <head>
-	<title>User Login and Registraion</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-	<style type="text/css">
-		
-		body{
+    <title>User Login and Registraion</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        
+        body{
 
-			background: linear-gradient(rgba(0,0,50,0.5),rgba(0,0,50,0.5)),url(images/image2.jpg);
-			background-size: cover;
-	
-		}
+            background: linear-gradient(rgba(0,0,50,0.5),rgba(0,0,50,0.5)),url(images/image2.jpg);
+            background-size: cover;
+    
+        }
 
-		.help-block{
-			color: red;
-		}
+        .help-block{
+            color: red;
+        }
 
-	</style>
+    </style>
 </head>
 <body>
 
-	<div class="container">
-		<div class="login-box">
-		<div class="row">
-			<div class="col-md-12 login">
-				<h2>Sign Up Here</h2>
-				<span class="help-block"><?php echo $error; ?></span>
-				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-					<div class="form-group">
-						<label>Email :</label>
-						<input type="text" name="email" class="form-control" value="<?php echo $email;?>">
-						<span class="help-block"><?php echo $email_err; ?></span>
-					</div>
-					<div class="form-group">
-						<label>User Name :</label>
-						<input type="text" name="username" class="form-control" value="<?php echo $username;?>">
-						<span class="help-block"><?php echo $username_err; ?></span>
-					</div>
-					<div class="form-group">
-						<label>Mobile Number :</label>
-						<input type="text" name="mobile" class="form-control" value="<?php echo $mobile;?>">
-						<span class="help-block"><?php echo $mobile_err; ?></span>
-					</div>
-					<div class="form-group">
-						<label>Address :</label>
-						<input type="text" name="address" class="form-control" value="<?php echo $address;?>">
-						<span class="help-block"><?php echo $address_err; ?></span>
-					</div>
-					<div class="form-group">
-						<label>Password :</label>
-						<input type="password" name="password" class="form-control" value="<?php echo $password;?>">
-						<span class="help-block"><?php echo $password_err; ?></span>
-					</div>
-					<div class="form-group">
-						<label>Re-Enter Password :</label>
-						<input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password;?>">
-						<span class="help-block"><?php echo $confirm_password_err; ?></span>
-					</div>
-					<button type="submit" class="btn btn-primary" name="register"> Sign Up </button>	
-					<p class="signup">
-					Already Have an Account ?<a href="login.php">Log In</a>
-					</p>				
-				</form>
-			</div>
-		</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="login-box">
+        <div class="row">
+            <div class="col-md-12 login">
+                <h2>Sign Up Here</h2>
+                <span class="help-block"><?php echo $error; ?></span>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                    <div class="form-group">
+                        <label>Email :</label>
+                        <input type="text" name="email" class="form-control" value="<?php echo $email;?>">
+                        <span class="help-block"><?php echo $email_err; ?></span>
+                    </div>
+                    <div class="form-group">
+                        <label>User Name :</label>
+                        <input type="text" name="username" class="form-control" value="<?php echo $username;?>">
+                        <span class="help-block"><?php echo $username_err; ?></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number :</label>
+                        <input type="text" name="mobile" class="form-control" value="<?php echo $mobile;?>">
+                        <span class="help-block"><?php echo $mobile_err; ?></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Address :</label>
+                        <input type="text" name="address" class="form-control" value="<?php echo $address;?>">
+                        <span class="help-block"><?php echo $address_err; ?></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Password :</label>
+                        <input type="password" name="password" class="form-control" value="<?php echo $password;?>">
+                        <span class="help-block"><?php echo $password_err; ?></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Re-Enter Password :</label>
+                        <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password;?>">
+                        <span class="help-block"><?php echo $confirm_password_err; ?></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="register"> Sign Up </button>    
+                    <p class="logandcreate">
+                    Already Have an Account ?<a href="login.php">Log In</a>
+                    </p>                
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
 </body>
 </html>
