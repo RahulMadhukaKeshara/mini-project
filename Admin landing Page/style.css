@@ -1,0 +1,31 @@
+body{
+	background-color: #ECF0F1;
+	margin: 1%;
+}
+
+.navbar{
+	margin: 1%;
+	border-radius: 10px;
+}
+#logo{
+	margin-left: 2%;
+	margin-right: 3%;
+}
+.card{
+	border-radius: 20px;
+	padding: 10px;
+
+}
+.btn btn-primary{
+
+}
+.card-title{
+	text-align: center;
+}
+.card-img-top{
+	border-radius: 10px;
+}
+section{
+	box-shadow: 0px 2px 5px #85929E;
+	border-radius: 20px;
+}
