@@ -16,6 +16,7 @@ body{
 }
 .card-img-top{
 	border-radius: 10px;
+	border: 4px solid white;
 }
 .card{
 	border-radius: 10px;

@@ -78,7 +78,8 @@ body{
 	text-align: center;
 }
 .card-img-top{
-	border-radius: 10px;
+    border-radius: 10px;
+    border: 4px solid white;
 }
 .card{
 	border-radius: 10px;
