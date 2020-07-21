@@ -11,17 +11,12 @@ body{
 	margin-left: 2%;
 	margin-right: 3%;
 }
-.card{
-	border-radius: 20px;
-	padding: 10px;
-
-}
-.btn btn-primary{
-
-}
 .card-title{
 	text-align: center;
 }
 .card-img-top{
+	border-radius: 10px;
+}
+.card{
 	border-radius: 10px;
 }

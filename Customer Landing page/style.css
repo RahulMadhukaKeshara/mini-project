@@ -73,3 +73,13 @@ body{
 #cancel:hover{
     text-decoration: none;
 }
+/*index page cards*/
+.card-title{
+	text-align: center;
+}
+.card-img-top{
+	border-radius: 10px;
+}
+.card{
+	border-radius: 10px;
+}

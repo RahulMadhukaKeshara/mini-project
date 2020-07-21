@@ -7,95 +7,59 @@
 <meta name="Description" content="Enter your description here"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <title>Customer | Home</title>
 </head>
 <body>
-     <!-- Navigation Bar -->
-     <nav class="navbar navbar-dark bg-dark ">
-        <a class="navbar-brand" href="#">
-          <img id="logo" src="Image/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-          Book Mart
-        </a>
-        <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link text-white" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">My purchase</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-info" href="#">Account</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-danger" href="#">Logout</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="d-flex justify-content-around">
+         <!-- Navigation Bar -->
+         <nav class="navbar navbar-dark bg-dark ">
+            <a class="navbar-brand" href="#">
+              <img id="logo" src="Image/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+              Book Mart
+            </a>
+            <ul class="nav justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link text-info" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">My purchase</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="account.html">Account</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-danger" href="#">Logout</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="d-flex justify-content-around">
 
-        
-        
-
-        <!--form-->
-        <div class="container">
-          <h1 class="head text-center text-primary">My Account</h1>
-          <div class="row">
-            <div class="col shadow  bg-white" id="left">
-              <form>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Username">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="User_ID">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Address">
-                </div>
-                <div class="form-group">
-                  <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Contact No.">
-                </div>
-              </form>
-            </div>
-            <div class="col shadow bg-white" id="right">
-              <div class="row py-4">
-                <div class="col-lg-6 mx-auto">
-                  <div class="text-center text-primary"><label class="text-center">Profile picture</label></div>
-            
-                    <!-- Upload image input-->
-                    <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                        <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
-                        <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
-                        <div class="input-group-append">
-                            <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
-                        </div>
-                    </div>
-        
-                    <!-- Uploaded image area-->
-                    <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
-        
-                </div>
-            </div>
-            <!--SaveButton-->
-            <div class="text-center mx-5">
-              <button type="button" class="btn btn-primary btn-lg mb-2 btn-block">Save</button>
-            </div>
-            <!--Cancel-->
-            <div class="text-center"><a id="cancel" href="#">Cancel</a></div>
-            </div>
-           
+    <!--Card 1-->    
+      <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="image/purchasenew.jpg" alt="Card image cap">
+          <div class="card-body  ">
+            <h5 class="card-title">Purchase Books</h5>
+            <a href="#" class="btn btn-primary col text-center">Purchase</a>
           </div>
-         
-          
-
+        </div>
       
-        
-
-        
+    <!--card 2--> 
+      <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="image/purchased.jpg" alt="Card image cap">
+          <div class="card-body  ">
+            <h5 class="card-title">Purchased Books</h5>
+            <a href="#" class="btn btn-primary col text-center">Purchased</a>
+          </div>
+      </div>
+   
+    <!--card 3-->  
+      <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="image/account.jpg" alt="Card image cap">
+          <div class="card-body  ">
+            <h5 class="card-title">My Account</h5>
+            <a href="account.html" class="btn btn-primary col text-center">Account</a>
+          </div>
+      </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
