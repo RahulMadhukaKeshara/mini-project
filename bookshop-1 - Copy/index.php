@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 	$email=$_POST['email'];
 	$password=$_POST['password'];
-	// Prepare our SQL, preparing the SQL statement will prevent SQL injection.
+	// Prepare our SQL, preparing the SQL statement will prevent SQL injection for userlogin.
 	$sql="SELECT user_id, password FROM users WHERE email = ?";
 	if ($stmt=mysqli_prepare($con,$sql)) {
 		// Bind parameters 
@@ -40,7 +40,40 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 				$_SESSION['email'] = $_POST['email'];
 				$_SESSION['user_id'] = $user_id;
 				echo 'Welcome ' . $_SESSION['name'] . '!';
-				header("location: welcome.php?user_id=".$user_id);
+				header("location: home.php?user_id=".$user_id);
+			} else {
+				$password_err= 'Incorrect password!';
+			}
+		} else {
+			$email_err= 'Incorrect email!';
+		}
+
+		mysqli_stmt_close($stmt);
+	}
+
+	// Prepare our SQL, preparing the SQL statement will prevent SQL injection for adminlogin.
+	$sql="SELECT admin_id, password FROM admins WHERE email = ?";
+	if ($stmt=mysqli_prepare($con,$sql)) {
+		// Bind parameters 
+		mysqli_stmt_bind_param($stmt,'s', $email);
+		//execute the statement
+		mysqli_stmt_execute($stmt);
+		// Store the result so we can check if the account exists in the database.
+		mysqli_stmt_store_result($stmt);
+
+		if (mysqli_stmt_num_rows($stmt) > 0) {
+			mysqli_stmt_bind_result($stmt,$user_id, $hashedpassword);
+			mysqli_stmt_fetch($stmt);
+			// Account exists, now we verify the password.
+			if (password_verify($_POST['password'], $hashedpassword)) {
+				// Verification success! User has loggedin!
+				// Create sessions so we know the user is logged in, they basically act like cookies but remember the data on the server.
+				session_regenerate_id();
+				$_SESSION['loggedin'] = TRUE;
+				$_SESSION['email'] = $_POST['email'];
+				$_SESSION['user_id'] = $user_id;
+				echo 'Welcome ' . $_SESSION['name'] . '!';
+				header("location: admin.php?user_id=".$user_id);
 			} else {
 				$password_err= 'Incorrect password!';
 			}
@@ -66,7 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 		
 		body{
 
-			background: linear-gradient(rgba(0,0,50,0.5),rgba(0,0,50,0.5)),url(images/image.jpg);
+			background: linear-gradient(rgba(0,0,50,0.5),rgba(0,0,50,0.5)),url(image/image.jpg);
 			background-size: cover;
 	
 		}
@@ -89,7 +122,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 					<div class="form-group">
-						<label>User Name :</label>
+						<label>Email :</label>
 						<input type="email" name="email" class="form-control" value="<?php echo $email;?>">
 						<span class="help-block"><?php echo $email_err; ?></span>
 					</div>
@@ -99,7 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 						<span class="help-block"><?php echo $password_err; ?></span>
 					</div>
 					<button type="submit" class="btn btn-primary"> Login </button>
-					<p class="logandcreate">
+					<p class="signup">
 					Not yet a member ?<a href="registration.php">Sign In</a>
 					</p>					
 				</form>

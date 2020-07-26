@@ -5,39 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style_a.css">
-    <title>Home</title>
+    <title>Admin | Home</title>
   </head>
   <body>
     <!-- Navigation Bar -->
       <nav class="navbar navbar-dark bg-dark ">
         <a class="navbar-brand" href="#">
-          <img id="logo" src="Image/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          <img id="logo" src="image/mid-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
           Book Mart
         </a>
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link text-info" href="admin.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Library</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Customers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" href="logout.php">Logout</a>
+          </li>
+        </ul>
       </nav>
       <div class="d-flex justify-content-around">
-        
+
+    <!--Card 1-->    
       <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="image/newbook.jpg" alt="Card image cap">
+          <img class="card-img-top" src="../images/newbook.jpg" alt="Card image cap">
           <div class="card-body  ">
             <h5 class="card-title">Book Library</h5>
             <a href="#" class="btn btn-primary col text-center">Library</a>
           </div>
         </div>
       
-     
+    <!--card 2--> 
       <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="image/newcustomer.jpg" alt="Card image cap">
+          <img class="card-img-top" src="../images/newcustomer.jpg" alt="Card image cap">
           <div class="card-body  ">
             <h5 class="card-title">Customer Details</h5>
-            <?php $id=$_GET['user_id']; 
-             echo "<a href='welcome.php?user_id=".$id."' class='btn btn-primary col text-center'>Details</a>"
-            ?>
+            <a href="#" class="btn btn-primary col text-center">Customers</a>
           </div>
       </div>
    
+    <!--card 3-->  
       <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="image/order.jpg" alt="Card image cap">
+          <img class="card-img-top" src="../images/order.jpg" alt="Card image cap">
           <div class="card-body  ">
             <h5 class="card-title">Booking Orders</h5>
             <a href="#" class="btn btn-primary col text-center">Orders</a>

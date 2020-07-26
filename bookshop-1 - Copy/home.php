@@ -24,7 +24,9 @@
             </a>
             <ul class="nav justify-content-end">
               <li class="nav-item">
-                <a class="nav-link text-info" href="">Home</a>
+              <?php $user_id=$_GET['user_id']; 
+                echo "<a class='nav-link text-white'  href='home.php?user_id=".$user_id."'>Home</a>"
+              ?>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="#">Purchase</a>
