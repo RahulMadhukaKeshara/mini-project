@@ -23,7 +23,7 @@ require_once ("../crud/php/component.php");
     <!-- Navigation Bar -->
       <nav class="navbar navbar-dark bg-dark" id="navigate" style="margin:1%; border-radius: 10px;">
         <a class="navbar-brand" href="#">
-          <img id="logo" src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          <img id="logo" src="../images/mid-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
           Book Mart
         </a>
         <ul class="nav justify-content-end">
