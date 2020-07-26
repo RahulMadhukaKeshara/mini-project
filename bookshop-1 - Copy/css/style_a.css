@@ -21,3 +21,8 @@ body{
 .card{
 	border-radius: 10px;
 }
+.head{
+    margin: 2% 0 4%;
+    font-family: 'Bebas Neue', cursive;
+    color: #1C2833;
+}
