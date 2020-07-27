@@ -13,6 +13,17 @@
         $copies=$_POST['book_copies'];
         $price=$_POST['book_price'];
 
+        if(isset($_POST['create']) && isset($_FILES["image"]) ){
+            $picture=$_FILES['image']['name'];
+            $temfile=$_FILES['image']['tmp_name'];
+            $target="uploadedimages/".basename($_FILES['image']['name']);
+    
+            move_uploaded_file($_FILES['image']['tmp_name'],$target);       
+        } else{
+            echo "Error";
+        }
+
+        $description=$_POST['description'];
         /*echo $bookname;
         echo $publisher;
         echo $isbn;
@@ -23,7 +34,7 @@
 
         if($bookname && $publisher && $isbn && $genre && $author && $copies && $price)
         {
-            $sql="INSERT INTO books (book_name,publisher,isbn_no,genre,author,copies,price) VALUES ('$bookname','$publisher','$isbn','$genre','$author','$copies','$price')";
+            $sql="INSERT INTO books (book_name,publisher,isbn_no,genre,author,copies,price,picture,description) VALUES ('$bookname','$publisher','$isbn','$genre','$author','$copies','$price','$picture','$description')";
             if(mysqli_query($con,$sql))
             {
                 message("success","Data inserted succesfully.");
@@ -70,8 +81,9 @@
                     $author=$row['author'];
                     $copies=$row['copies'];
                     $price=$row['price'];
-
-                    header("location: crud.php?book_id=".$book_id."&& bookname=".$bookname."&& publisher=".$publisher."&& isbn=".$isbn."&& genre=".$genre."&& author=".$author."&& copies=".$copies."&& price=".$price);
+                    $picture=$row['picture'];
+                    $description=$row['description'];
+                    header("location: crud.php?book_id=".$book_id."&& bookname=".$bookname."&& publisher=".$publisher."&& isbn=".$isbn."&& genre=".$genre."&& author=".$author."&& copies=".$copies."&& price=".$price."&& picture=".$picture."&& description=".$description);
                 }
         }
         else
@@ -94,6 +106,21 @@
         $copies=$_POST['book_copies'];
         $price=$_POST['book_price'];
         
+        if(isset($_POST['update']) && isset($_FILES["image"]) )
+        {
+            $picture=$_FILES['image']['name'];
+            $temfile=$_FILES['image']['tmp_name'];
+            $target="uploadedimages/".basename($_FILES['image']['name']);
+
+            if(move_uploaded_file($_FILES['image']['tmp_name'],$target)){
+                $msg= "Success";
+            }else{
+                $msg="ERROR";
+            }        
+        } else{
+            echo "Error";
+        }
+        $description=$_POST['description'];
         /*echo $book_id;
         echo $bookname;
         echo $publisher;
@@ -105,7 +132,7 @@
 
         if($bookname && $publisher && $isbn && $genre && $author && $copies && $price)
         {
-            $sql="UPDATE books SET book_name='$bookname',publisher='$publisher',isbn_no='$isbn',genre='$genre',author='$author',copies='$copies',price='$price' WHERE book_id='$book_id'";
+            $sql="UPDATE books SET book_name='$bookname',publisher='$publisher',isbn_no='$isbn',genre='$genre',author='$author',copies='$copies',price='$price',picture='$picture',description='$description' WHERE book_id='$book_id'";
             if(mysqli_query($con,$sql))
             {
                 header("location: crud.php");

@@ -3,7 +3,7 @@ require_once "configure.php";
 require_once "component.php";
 require_once "operations.php";
 
-$book_id=$bookname= $publisher=$isbn=$genre=$author=$copies=$price="";
+$book_id=$bookname= $publisher=$isbn=$genre=$author=$copies=$price=$picture=$description="";
 if(!empty($_GET['book_id'])){
   $book_id=$_GET['book_id'];
 }
@@ -27,6 +27,9 @@ if(!empty($_GET['copies'])){
 }
 if(!empty($_GET['price'])){
   $price=$_GET['price'];
+}
+if(!empty($_GET['description'])){
+  $description=$_GET['description'];
 }
 ?>
 <!DOCTYPE html>
@@ -76,7 +79,7 @@ if(!empty($_GET['price'])){
       <main>
         <div class="container text-center" id="contain">
           <div class="d-flex justify-content-center">
-            <form action="" method="post" class="w-75">
+            <form action="" method="post" class="w-75" enctype="multipart/form-data">
               <div class="py-2">
                   <?php inputId("hidden","<i class='fas fa-id-badge'></i>","ID", "book_id",  $book_id);  ?>
               </div>
@@ -103,6 +106,30 @@ if(!empty($_GET['price'])){
                        <?php inputElement("<i class='fas fa-dollar-sign'></i>","Price", "book_price",$price); ?>
                     </div>
               </div>
+             <div class="row pt-2">
+                    <div class="col">
+                      <div class="py-2">
+                          <div class="input-group mb-3   bg-white " style="padding-bottom: 0.5em" >
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-warning" style="margin-right: 0.5em; margin-bottom: 0.75em; margin-top: 0px; margin-left: 0px;"><i class="fas fa-copy"></i></span>
+                            </div>
+                            <label class="font-weight-light" id="inputLabel" for="imageinput" >Choose Image</label>
+                            <input type="file" name="image" id="imageinput" class="btn btn-light w-100" >
+                            <!--<img src="#" style="width: 75px; height: 75px; margin-left: auto; margin-right: auto; margin-top: 0.75em;" class="" >-->
+                          </div>                  
+                      </div>
+                    </div>
+              <div class="col">
+                <div class="py-2">
+                 <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-warning"><i class="fas fa-copy"></i></span>
+                    </div>
+                    <textarea name="description" class="form-control" placeholder="Description" ><?php echo $description; ?></textarea>
+                     </div>
+               </div>
+              </div>
+              </div>
               <div class="d-flex justify-content-center">
                         <?php buttonElement("btn-create","btn btn-success","<i class='fas fa-plus'></i>","create","data-toggle='tooltip' data-placement='bottom' title='Create'"); ?>
                         <?php buttonElement("btn-read","btn btn-primary","<i class='fas fa-sync'></i>","read","data-toggle='tooltip' data-placement='bottom' title='Read'"); ?>
@@ -114,6 +141,7 @@ if(!empty($_GET['price'])){
           </div>
 
         </div>
+
 
         <!-- Bootstrap table  -->
         
@@ -141,6 +169,8 @@ if(!empty($_GET['price'])){
                                           echo"<th>Author</th>";
                                           echo"<th>No of Copies</th>";
                                           echo"<th>Book Price</th>";
+                                          echo"<th>Cover Picture</th>";
+                                          echo"<th>Description</th>";
                                           echo"<th>Edit</th>";
                                           echo "</tr>";
                                       echo "</thead>";
@@ -156,6 +186,8 @@ if(!empty($_GET['price'])){
                                           echo "<td>".$row['author']."</td>";
                                           echo "<td>".$row['copies']."</td>";
                                           echo "<td>".$row['price']."</td>";
+                                          echo "<td><img src='uploadedimages/".$row['picture']."'style='width: 75px; height: 100px; margin-left: auto; margin-right: auto; margin-top: 0.5em;'></td>";
+                                          echo "<td>".$row['description']."</td>";
                                           //echo "<td><i class='fas fa-edit btnedit'></i></td>";
                                           echo "<td>";
                                           echo "<a href='operations.php?item_id=". $row['book_id'] ."' title='Update Record' data-toggle='tooltip'><i class='fas fa-edit btnedit'></i></a>";  
