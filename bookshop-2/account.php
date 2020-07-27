@@ -7,7 +7,7 @@ $email = $username = $address = $phone = $picture = "";
 $email_err =$username_err =$address_err = $phone_err = $picture_msg = "";
 
 // Processing form data when form is submitted
-if(isset($_POST["user_id"]) && !empty($_POST["user_id"]))
+if(isset($_POST["submit"]) && !empty($_POST["user_id"]))
 {
   //get hidden iput value
   $user_id=$_POST['user_id'];
@@ -47,20 +47,21 @@ if(isset($_POST["user_id"]) && !empty($_POST["user_id"]))
     $target="uploadedimages/".basename($_FILES['image']['name']);
 
     if(move_uploaded_file($_FILES['image']['tmp_name'],$target)){
-        $picture_msg= "Success";
+        $msg= "Success";
     }else{
-        $picture_msg="ERROR";
+        $msg="ERROR";
     }        
   } else{
       echo "Error";
   }
+
 
   if(empty($email_err) && empty($username_err) && empty($address_err) && empty($phone_err) ){
     $sql="UPDATE users SET username=?, email=?,phone=?,address=?,picture=? WHERE user_id=?";
        
     if($stmt = mysqli_prepare($con, $sql)){
       // Bind variables to the prepared statement as parameters
-      mysqli_stmt_bind_param($stmt, "sssssi", $param_username,	$param_email, $param_phone,	$param_address,	$param_picture, $param_user_id);
+      mysqli_stmt_bind_param($stmt, "sssssi", $param_username,	$param_email, $param_phone,	$param_address, $param_picture, $param_user_id);
       
       // Set parameters
       $param_username = $username;
@@ -161,7 +162,7 @@ else
             <a class="nav-link text-white" href="#">My purchase</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-info" href="#">Account</a>
+            <a class="nav-link text-info" href="">Account</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-danger" href="logout.php">Logout</a>
@@ -200,25 +201,26 @@ else
               <div class="row py-4">
                 <div class="col-lg-6 mx-auto">
                   <div class="text-center text-primary"><label class="text-center">Profile picture</label></div>
-            
+                  
                     <!-- Upload image input-->
                     <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                        <input id="upload" type="file" name="image" onchange="readURL(this);" class="form-control border-0">
+                        <input id="upload" type="file" name="image" class="form-control border-0">
                         <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
                         <div class="input-group-append">
                             <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
                         </div>
                     </div>
         
-                    <!-- Uploaded image area-->
+                    <!--Uploaded image area-->
                     <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
         
                 </div>
             </div>
             <!--SaveButton-->
             <div class="text-center mx-5">
+
               <input type="hidden" name="user_id" class="form-control" id="formGroupExampleInput2" value="<?php echo $user_id; ?>" >
-              <Input type="submit" class="btn btn-primary btn-lg mb-2 btn-block" value="Save">
+              <Input type="submit" name="submit" class="btn btn-primary btn-lg mb-2 btn-block" value="Save">
             </div>
             <!--Cancel-->
             <div class="text-center"><a id="cancel" href="<?php echo "home.php?user_id=".$user_id?>">Cancel</a></div>

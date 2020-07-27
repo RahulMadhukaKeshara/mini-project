@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+		window.history.forward();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style_u.css">
 <title>Home</title>
 </head>
 <body>
@@ -19,27 +22,31 @@
              <!-- Navigation Bar -->
          <nav class="navbar navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
-              <img id="logo" src="../images/mid-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+              <img id="logo" src="image/mid-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
               Book Mart
             </a>
             <ul class="nav justify-content-end">
               <li class="nav-item">
-                <a class="nav-link text-info" href="cushome.html">Home</a>
+              <?php $user_id=$_GET['user_id']; 
+                echo "<a class='nav-link text-white'  href='home.php?user_id=".$user_id."'>Home</a>"
+              ?>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#">Purchase</a>
+                <a class="nav-link text-white" href="#">My Purchase</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="account.html">Account</a>
+                <?php $user_id=$_GET['user_id']; 
+                echo "<a class='nav-link text-white'  href='account.php?user_id=".$user_id."'>Account</a>"
+                ?>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-danger" href="#">Logout</a>
+                <a class="nav-link text-danger" href="logout.php">Logout</a>
               </li>
             </ul>
           </nav>
 
           <div class="text-center" class="d-flex justify-content-center">
-            <img id="logo" src="../images/mid-logo.png" width="200" height="200" class="d-inline-block align-top" alt="">
+            <img id="logo" src="image/mid-logo.png" width="200" height="200" class="d-inline-block align-top" alt="">
             <h1 id="header">Book Mart</h1>
           </div>  
             <div id="body">

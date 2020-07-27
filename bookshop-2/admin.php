@@ -16,17 +16,13 @@
         </a>
         <ul class="nav justify-content-end">
           <li class="nav-item">
-              <?php $user_id=$_GET['user_id']; 
-                echo "<a class='nav-link text-white'  href='admin.php?user_id=".$user_id."'>Home</a>"
-              ?>
+              <a class='nav-link text-white'  href='admin.php?'>Home</a> 
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Library</a>
+                <a class='nav-link text-white'  href='crud.php'>Library</a>
           </li>
           <li class="nav-item">
-          <?php $user_id=$_GET['user_id']; 
-                echo "<a class='nav-link text-white'  href='customer.php?user_id=".$user_id."'>Customer</a>"
-              ?>
+              <a class='nav-link text-white'  href='customer.php'>Customer</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#">Orders</a>
@@ -43,7 +39,7 @@
           <img class="card-img-top" src="image/newbook.jpg" alt="Card image cap">
           <div class="card-body  ">
             <h5 class="card-title">Book Library</h5>
-            <a href="#" class="btn btn-primary col text-center">Library</a>
+            <a href="crud.php" class="btn btn-primary col text-center">Library</a>
           </div>
         </div>
       
@@ -52,7 +48,7 @@
           <img class="card-img-top" src="image/newcustomer.jpg" alt="Card image cap">
           <div class="card-body  ">
             <h5 class="card-title">Customer Details</h5>
-            <a href="#" class="btn btn-primary col text-center">Customers</a>
+            <a href="customer.php" class="btn btn-primary col text-center">Customers</a>
           </div>
       </div>
    

@@ -91,6 +91,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 <!DOCTYPE html>
 <html>
 <head>
+	<script>
+		window.history.forward();
+	</script>
 	<title>User Login and Registraion</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -109,6 +112,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 		}
 
 	</style>
+
 </head>
 <body>
 

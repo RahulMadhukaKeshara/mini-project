@@ -26,3 +26,12 @@ body{
 	width: 1200px;
 }
 
+.error{
+	background-color: red;
+	padding: 1em;
+}
+
+.success{
+	background-color: green;
+	padding: 1em;
+}

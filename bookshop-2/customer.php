@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+		window.history.forward();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -20,23 +23,19 @@
             </a>
             <ul class="nav justify-content-end">
               <li class="nav-item">
-                <?php $user_id=$_GET['user_id']; 
-                    echo "<a class='nav-link text-white'  href='admin.php?user_id=".$user_id."'>Home</a>"
-                ?>
+                <a class='nav-link text-white'  href='admin.php'>Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#">Library</a>
+                    <a class='nav-link text-white'  href='crud.php'>Library</a>
               </li>
               <li class="nav-item">
-              <?php $user_id=$_GET['user_id']; 
-                    echo "<a class='nav-link text-white'  href='customer.php?user_id=".$user_id."'>Customer</a>"
-                ?>
+                <a class='nav-link text-white'  href='customer.php'>Customer</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="order.html">Orders</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-danger" href="#">Logout</a>
+                <a class="nav-link text-danger" href="logout.php">Logout</a>
               </li>
             </ul>
           </nav>
