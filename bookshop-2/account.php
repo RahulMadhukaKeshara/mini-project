@@ -159,7 +159,9 @@ else
             <a class="nav-link text-white" href="<?php echo "home.php?user_id=".$user_id?>">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">My purchase</a>
+              <?php $user_id=$_GET['user_id']; 
+                echo "<a class='nav-link text-white'  href='library_cus.php?user_id=".$user_id."'>Library</a>"
+              ?>
           </li>
           <li class="nav-item">
             <a class="nav-link text-info" href="">Account</a>

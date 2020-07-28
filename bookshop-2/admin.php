@@ -24,9 +24,7 @@
           <li class="nav-item">
               <a class='nav-link text-white'  href='customer.php'>Customer</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Orders</a>
-          </li>
+         
           <li class="nav-item">
             <a class="nav-link text-danger" href="logout.php">Logout</a>
           </li>
@@ -52,15 +50,7 @@
           </div>
       </div>
    
-    <!--card 3-->  
-      <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="image/order.jpg" alt="Card image cap">
-          <div class="card-body  ">
-            <h5 class="card-title">Booking Orders</h5>
-            <a href="#" class="btn btn-primary col text-center">Orders</a>
-          </div>
-      </div>
- 
+    
     </div>
 
 

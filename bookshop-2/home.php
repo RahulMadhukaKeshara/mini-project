@@ -31,9 +31,9 @@
                 echo "<a class='nav-link text-white'  href='home.php?user_id=".$user_id."'>Home</a>"
               ?>
               </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="#">My Purchase</a>
-              </li>
+              <?php $user_id=$_GET['user_id']; 
+                echo "<a class='nav-link text-white'  href='library_cus.php?user_id=".$user_id."'>Library</a>"
+              ?>
               <li class="nav-item">
                 <?php $user_id=$_GET['user_id']; 
                 echo "<a class='nav-link text-white'  href='account.php?user_id=".$user_id."'>Account</a>"

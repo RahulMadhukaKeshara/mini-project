@@ -31,9 +31,7 @@
               <li class="nav-item">
                 <a class='nav-link text-white'  href='customer.php'>Customer</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="order.html">Orders</a>
-              </li>
+              
               <li class="nav-item">
                 <a class="nav-link text-danger" href="logout.php">Logout</a>
               </li>
