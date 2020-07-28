@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2020 at 05:17 PM
+-- Generation Time: Jul 28, 2020 at 01:09 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -68,16 +68,12 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`book_id`, `book_name`, `publisher`, `isbn_no`, `genre`, `author`, `copies`, `price`, `picture`, `description`) VALUES
-(1, 'Harry potter', '', 0, '', '', 0, 0, '', ''),
-(2, 'Harry potter', 'jk', 3333, 'fantacy', 'jk rowling', 23, 234, '', ''),
-(6, 'Harry potter', 'jk', 7777, 'fantacy', 'jk rowling', 23, 234, '', ''),
-(8, 'game of thrones', 'rr', 234566, 'fiction', 'r.r.martin', 50, 500, '', ''),
-(9, 'GOT', 'rr', 234566, 'fiction', 'r.r.martin', 50, 500, 'IibDqjf.jpg', ''),
-(10, 'Harry potter', 'jk', 2345, 'fantacy', 'jk rowling', 50, 500, '', ''),
+(10, 'Harry potter', 'jk', 2345, 'fantacy', 'jk rowling', 50, 500, 'Harry_Potter_and_the_Order_of_the_Phoenix_poster.jpg', 'famous book'),
 (12, 'Ramayana', 'unknown', 1111, 'fiction', 'valmiki', 50, 500, '9788188759118.jpg', ''),
 (13, 'Harry potter', 'jk', 1111, 'fiction', 'jk rowling', 100, 1200, 'Harry_Potter_and_the_Order_of_the_Phoenix_poster.jpg', 'famous book'),
 (14, 'stargazing', 'reedsy', 2222, 'children', 'Jen wang', 20, 100, 'stargazing.jpg', 'Chilndens book'),
-(16, 'ponniyin selvan', 'vikatan publications', 1111, 'fiction', 'kalki', 100, 1200, 'ponniyinselavn.jpg', 'historical fiction');
+(16, 'ponniyin selvan', 'vikatan publications', 1111, 'fiction', 'kalki', 100, 1200, 'ponniyinselavn.jpg', 'historical fiction'),
+(17, 'stargazing', 'reedsy', 2222, 'children', 'Jen wang', 20, 100, 'stargazing.jpg', 'Chilndens book');
 
 -- --------------------------------------------------------
 
@@ -143,7 +139,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `book_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `book_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
