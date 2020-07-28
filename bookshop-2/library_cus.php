@@ -32,7 +32,7 @@
           </li>
           <li class="nav-item">
               <?php $user_id=$_GET['user_id']; 
-                echo "<a class='nav-link text-white'  href='library_cus.php?user_id=".$user_id."'>Library</a>"
+                echo "<a class='nav-link text-info'  href='library_cus.php?user_id=".$user_id."'>Books</a>"
               ?>
           </li>
           <li class="nav-item">
@@ -65,7 +65,7 @@
 			 ?>
         <div class="col-4">
           <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="uploadedimages/<?php echo $row["picture"]; ?>"  alt="Card image cap">
+            <img class="card-img-top" src="uploadedimages/<?php echo $row["picture"]; ?>"  alt="Card image cap" style="max-height: 18rem; min-height: 18rem;" >
             <div class="card-body" style="text-align: left;">
             <ul>
               <li><?php echo "Book Name :". $row['book_name'] ?></li>

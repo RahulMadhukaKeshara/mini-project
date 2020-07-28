@@ -160,7 +160,7 @@ else
           </li>
           <li class="nav-item">
               <?php $user_id=$_GET['user_id']; 
-                echo "<a class='nav-link text-white'  href='library_cus.php?user_id=".$user_id."'>Library</a>"
+                echo "<a class='nav-link text-white'  href='library_cus.php?user_id=".$user_id."'>Books</a>"
               ?>
           </li>
           <li class="nav-item">
