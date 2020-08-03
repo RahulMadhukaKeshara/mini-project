@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 03, 2020 at 01:11 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.5
+-- Host: 127.0.0.1:3309
+-- Generation Time: Aug 03, 2020 at 01:31 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.14
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -20,6 +22,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `bookshop`
 --
+CREATE DATABASE IF NOT EXISTS `bookshop` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `bookshop`;
 
 -- --------------------------------------------------------
 
@@ -27,15 +31,17 @@ SET time_zone = "+00:00";
 -- Table structure for table `admins`
 --
 
-CREATE TABLE `admins` (
-  `admin_id` int(10) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `admins`;
+CREATE TABLE IF NOT EXISTS `admins` (
+  `admin_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` varchar(250) NOT NULL,
-  `email` text DEFAULT NULL,
+  `email` text,
   `password` varchar(200) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `address` varchar(200) NOT NULL,
-  `reg_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `reg_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`admin_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `admins`
@@ -50,8 +56,9 @@ INSERT INTO `admins` (`admin_id`, `username`, `email`, `password`, `phone`, `add
 -- Table structure for table `books`
 --
 
-CREATE TABLE `books` (
-  `book_id` int(15) NOT NULL,
+DROP TABLE IF EXISTS `books`;
+CREATE TABLE IF NOT EXISTS `books` (
+  `book_id` int(15) NOT NULL AUTO_INCREMENT,
   `book_name` varchar(100) NOT NULL,
   `publisher` varchar(100) NOT NULL,
   `isbn_no` int(50) NOT NULL,
@@ -60,8 +67,9 @@ CREATE TABLE `books` (
   `copies` int(225) NOT NULL,
   `price` float NOT NULL,
   `picture` varchar(250) NOT NULL,
-  `description` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `description` varchar(250) NOT NULL,
+  PRIMARY KEY (`book_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `books`
@@ -78,43 +86,22 @@ INSERT INTO `books` (`book_id`, `book_name`, `publisher`, `isbn_no`, `genre`, `a
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `username` varchar(250) NOT NULL,
-  `email` varchar(250) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  `phone` varchar(15) NOT NULL,
-  `address` varchar(300) NOT NULL,
-  `picture` varchar(250) NOT NULL,
-  `reg_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`user_id`, `username`, `email`, `password`, `phone`, `address`, `picture`, `reg_time`) VALUES
-(1, 'rahulanm_im17057', 'rahulanm_im17057@stu.kln.ac.lk', '$2y$10$Uq3iFhgQljFDinpD7A/Ee./IuUOUH1mk9V2bkORCF8MD90kopoMsK', '0776041139', 'karaveddy east,karaveddy', '', '2020-08-03 11:03:15');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `user_id` int(10) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `picture` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `reg_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `picture` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `reg_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
@@ -125,64 +112,8 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `phone`, `addre
 (25, 'tests', 'test@test.com', '$2y$10$7lgQv1s4nyfbHp1Zha4jdepPj7T34yXdoHz8kEbvE.GfgwQja0Etm', '0776041139', 'karaveddy east,karaveddy', '', '2020-07-26 02:04:30'),
 (26, 'test', 'tet@test.com', '$2y$10$2ChPKLqyV7UOMeNy87wzUunRtgJdBAuhN/J0N85BtEaCb.i4tz/BC', '0776041139', 'karaveddy east,karaveddy', '', '2020-07-26 19:27:31'),
 (27, 'rahulan mahendra', 'rahulmahendra24@gmail.com', '$2y$10$bRMuwD5dqXWIDQNy5aBozeyXfdg.GvaGeF1I9gpgDZriyRxawzHZu', '0776041139', 'karaveddy east,karaveddy', '', '2020-07-27 07:24:05'),
-(28, 'lakshan', 'lakshan@gmail.com', '$2y$10$VHReJ3f1We/udBlRC43Uh.SZ5rs3Mq2gNRd.naGILzP4qyglFYe9q', '0703135478', 'Nuwaraeliya', '', '2020-07-28 12:56:58');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `admins`
---
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`admin_id`);
-
---
--- Indexes for table `books`
---
-ALTER TABLE `books`
-  ADD PRIMARY KEY (`book_id`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `admins`
---
-ALTER TABLE `admins`
-  MODIFY `admin_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `books`
---
-ALTER TABLE `books`
-  MODIFY `book_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+(28, 'chama', 'finaltest@gmail.com', '$2y$10$1y6qt9HTO/wDQn.8kzzZBezlGwjEXC5Qtq.w8JVQT/eZAakr5Msr6', '0717894456', '318/A, Kossinna , Ganemulla', NULL, '2020-08-03 13:23:20');
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

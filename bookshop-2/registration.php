@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         $email_err = "Please enter a email.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT user_id FROM user WHERE email = ?";
+        $sql = "SELECT user_id FROM users WHERE email = ?";
         
         if($stmt = mysqli_prepare($con, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     if(empty($email_err) && empty($username_err) && empty($address_err) && empty($mobile_err) && empty($password_err) && empty($confirm_password_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO user (username, email, password, phone, address) VALUES (?, ?,  ?, ?, ?)";
+        $sql = "INSERT INTO users (username, email, password, phone, address) VALUES (?, ?,  ?, ?, ?)";
          
         if($stmt = mysqli_prepare($con, $sql)){
             // Bind variables to the prepared statement as parameters

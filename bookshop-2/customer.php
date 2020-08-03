@@ -46,7 +46,7 @@
                 require_once "configure.php";
                     
                 // Attempt select query execution
-                $sql = "SELECT * FROM user";
+                $sql = "SELECT * FROM users";
                 if($result = mysqli_query($con, $sql)){
                     if(mysqli_num_rows($result) > 0){
                         echo "<table class='table table-dark'>";

@@ -57,7 +57,7 @@ if(isset($_POST["submit"]) && !empty($_POST["user_id"]))
 
 
   if(empty($email_err) && empty($username_err) && empty($address_err) && empty($phone_err) ){
-    $sql="UPDATE user SET username=?, email=?,phone=?,address=?,picture=? WHERE user_id=?";
+    $sql="UPDATE users SET username=?, email=?,phone=?,address=?,picture=? WHERE user_id=?";
        
     if($stmt = mysqli_prepare($con, $sql)){
       // Bind variables to the prepared statement as parameters
@@ -96,7 +96,7 @@ else
     $user_id = trim($_GET["user_id"]);
     
     // Prepare a select statement
-    $sql="SELECT user_id,username,email,phone,address,picture FROM user WHERE user_id=?";
+    $sql="SELECT user_id,username,email,phone,address,picture FROM users WHERE user_id=?";
 
     if($stmt=mysqli_prepare($con,$sql))
     {
