@@ -60,7 +60,7 @@ if(!empty($_GET['description'])){
           <a class='nav-link text-white'  href='admin.php'>Home</a>
           </li>
           <li class="nav-item">
-          <a class='nav-link text-white'  href='crud.php'>Library</a>
+          <a class='nav-link text-info'  href='crud.php'>Library</a>
           </li>
           <li class="nav-item">
           <a class='nav-link text-white'  href='customer.php'>Customer</a>

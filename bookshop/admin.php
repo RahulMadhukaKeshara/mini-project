@@ -16,7 +16,7 @@
         </a>
         <ul class="nav justify-content-end">
           <li class="nav-item">
-              <a class='nav-link text-white'  href='admin.php?'>Home</a> 
+              <a class='nav-link text-info'  href='admin.php?'>Home</a> 
           </li>
           <li class="nav-item">
                 <a class='nav-link text-white'  href='crud.php'>Library</a>

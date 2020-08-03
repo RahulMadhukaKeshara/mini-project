@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2020 at 01:09 PM
+-- Generation Time: Aug 03, 2020 at 01:11 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -78,6 +78,30 @@ INSERT INTO `books` (`book_id`, `book_name`, `publisher`, `isbn_no`, `genre`, `a
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `username` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `address` varchar(300) NOT NULL,
+  `picture` varchar(250) NOT NULL,
+  `reg_time` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `username`, `email`, `password`, `phone`, `address`, `picture`, `reg_time`) VALUES
+(1, 'rahulanm_im17057', 'rahulanm_im17057@stu.kln.ac.lk', '$2y$10$Uq3iFhgQljFDinpD7A/Ee./IuUOUH1mk9V2bkORCF8MD90kopoMsK', '0776041139', 'karaveddy east,karaveddy', '', '2020-08-03 11:03:15');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -100,7 +124,8 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `phone`, `addre
 (20, 'rahulan mahendra', 'rahulanm_im17057@stu.kln.ac.lk', '$2y$10$mvToGn8ZtB9c.K3FNGlg9u2CdzkR4jeDMEGSoEBW6Xct0pAv0ah7i', '0776041139', 'karaveddy', 'SLP_8576.jpg', '2020-07-15 15:31:38'),
 (25, 'tests', 'test@test.com', '$2y$10$7lgQv1s4nyfbHp1Zha4jdepPj7T34yXdoHz8kEbvE.GfgwQja0Etm', '0776041139', 'karaveddy east,karaveddy', '', '2020-07-26 02:04:30'),
 (26, 'test', 'tet@test.com', '$2y$10$2ChPKLqyV7UOMeNy87wzUunRtgJdBAuhN/J0N85BtEaCb.i4tz/BC', '0776041139', 'karaveddy east,karaveddy', '', '2020-07-26 19:27:31'),
-(27, 'rahulan mahendra', 'rahulmahendra24@gmail.com', '$2y$10$bRMuwD5dqXWIDQNy5aBozeyXfdg.GvaGeF1I9gpgDZriyRxawzHZu', '0776041139', 'karaveddy east,karaveddy', '', '2020-07-27 07:24:05');
+(27, 'rahulan mahendra', 'rahulmahendra24@gmail.com', '$2y$10$bRMuwD5dqXWIDQNy5aBozeyXfdg.GvaGeF1I9gpgDZriyRxawzHZu', '0776041139', 'karaveddy east,karaveddy', '', '2020-07-27 07:24:05'),
+(28, 'lakshan', 'lakshan@gmail.com', '$2y$10$VHReJ3f1We/udBlRC43Uh.SZ5rs3Mq2gNRd.naGILzP4qyglFYe9q', '0703135478', 'Nuwaraeliya', '', '2020-07-28 12:56:58');
 
 --
 -- Indexes for dumped tables
@@ -117,6 +142,12 @@ ALTER TABLE `admins`
 --
 ALTER TABLE `books`
   ADD PRIMARY KEY (`book_id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `users`
@@ -142,10 +173,16 @@ ALTER TABLE `books`
   MODIFY `book_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

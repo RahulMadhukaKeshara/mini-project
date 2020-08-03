@@ -29,7 +29,7 @@
                     <a class='nav-link text-white'  href='crud.php'>Library</a>
               </li>
               <li class="nav-item">
-                <a class='nav-link text-white'  href='customer.php'>Customer</a>
+                <a class='nav-link text-info'  href='customer.php'>Customer</a>
               </li>
               
               <li class="nav-item">
@@ -46,7 +46,7 @@
                 require_once "configure.php";
                     
                 // Attempt select query execution
-                $sql = "SELECT * FROM users";
+                $sql = "SELECT * FROM user";
                 if($result = mysqli_query($con, $sql)){
                     if(mysqli_num_rows($result) > 0){
                         echo "<table class='table table-dark'>";
